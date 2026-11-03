@@ -29,58 +29,75 @@ def _append_jsonl(path: Path, obj: Dict[str, Any]) -> None:
     with path.open("a", encoding="utf-8") as f:
         f.write(json.dumps(obj, ensure_ascii=False) + "\n")
 
-def _walk_find_key(obj: Any, key: str) -> List[Any]:
-    found: List[Any] = []
+def _depth_minima_from_catalogue(obj: Any) -> List[float]:
+    """Only accept minima belonging to an explicitly identified depth coordinate."""
+    result: List[float] = []
     if isinstance(obj, dict):
-        for k, v in obj.items():
-            if k == key:
-                found.append(v)
-            found.extend(_walk_find_key(v, key))
+        identifier = str(obj.get("coordinate_id") or obj.get("name") or obj.get("short_name") or "").lower()
+        if identifier in {"depth", "depthu", "depthv"}:
+            try:
+                value = float(obj["minimum_value"])
+                if math.isfinite(value):
+                    result.append(value)
+            except (KeyError, ValueError, TypeError):
+                pass
+        for child in obj.values():
+            result.extend(_depth_minima_from_catalogue(child))
     elif isinstance(obj, list):
-        for it in obj:
-            found.extend(_walk_find_key(it, key))
-    return found
+        for child in obj:
+            result.extend(_depth_minima_from_catalogue(child))
+    return result
+
+
+def _surface_depth_from_error(error: Exception, requested: float) -> Optional[float]:
+    """Recover a valid boundary from Copernicus' explicit depth-range error.
+
+    Do not guess a depth if the server has not supplied a depth range.
+    """
+    pattern = (
+        r"for the depth dimension.*?dataset coordinates\s*"
+        r"\[\s*([-+]?\d+(?:\.\d+)?(?:[eE][-+]?\d+)?)\s*,\s*"
+        r"([-+]?\d+(?:\.\d+)?(?:[eE][-+]?\d+)?)\s*\]"
+    )
+    match = re.search(pattern, str(error), re.IGNORECASE | re.DOTALL)
+    if not match:
+        return None
+    low, high = float(match.group(1)), float(match.group(2))
+    if not (math.isfinite(low) and math.isfinite(high) and low <= high):
+        return None
+    return min(max(requested, low), high)
+
 
 class _DepthResolver:
-    """Find the available depth closest to target (usually 0m) by calling `copernicusmarine describe` once per dataset_id."""
+    """Resolve the shallowest supported depth per dataset using catalogue metadata."""
     def __init__(self) -> None:
         self._cache: Dict[str, Optional[float]] = {}
 
     def closest_depth(self, dataset_id: str, target_m: float = 0.0) -> Optional[float]:
-        if dataset_id in self._cache:
-            return self._cache[dataset_id]
-
-        cmd = ["copernicusmarine", "describe", "--dataset-id", dataset_id, "-c", "depth", "-r", "coordinates"]
-        try:
-            cp = subprocess.run(cmd, check=True, capture_output=True, text=True)
-            meta = json.loads(cp.stdout)
-        except Exception:
-            self._cache[dataset_id] = None
-            return None
-
-        mins = _walk_find_key(meta, "minimum_value")
-        maxs = _walk_find_key(meta, "maximum_value")
-
-        vals: List[float] = []
-        for v in mins + maxs:
+        if dataset_id not in self._cache:
+            # -c means "contains" in the Copernicus CLI, NOT "coordinate".
+            # Filter by dataset ID and inspect only the depth coordinate.
+            cmd = [
+                "copernicusmarine", "describe", "--dataset-id", dataset_id,
+                "--return-fields", "coordinates,coordinate_id,minimum_value,maximum_value",
+                "--log-level", "ERROR",
+            ]
             try:
-                vals.append(float(v))
-            except Exception:
-                pass
-
-        if not vals:
-            self._cache[dataset_id] = None
-            return None
-
-        best = min(vals, key=lambda d: abs(d - target_m))
-        self._cache[dataset_id] = best
-        return best
+                cp = subprocess.run(cmd, check=True, capture_output=True, text=True, timeout=90)
+                meta = json.loads(cp.stdout)
+                vals = _depth_minima_from_catalogue(meta)
+                self._cache[dataset_id] = min(vals) if vals else None
+            except (subprocess.SubprocessError, OSError, ValueError):
+                self._cache[dataset_id] = None
+        minimum = self._cache[dataset_id]
+        return max(float(target_m), minimum) if minimum is not None else None
 
 from typing import Dict, Any, List, Tuple, Optional
 import json
 import os
 import shutil
 import math
+import re
 import numpy as np
 import requests
 from dateutil import parser as dtparser
@@ -250,15 +267,13 @@ def _try_copernicus_layers(
                         pass
 
                 try:
-                    copernicusmarine.subset(
+                    subset_args = dict(
                         dataset_id=dsid,
                         variables=vars_,
                         minimum_longitude=lon_min,
                         maximum_longitude=lon_max,
                         minimum_latitude=lat_min,
                         maximum_latitude=lat_max,
-                        minimum_depth=min_depth,
-                        maximum_depth=max_depth,
                         start_datetime=tt0.isoformat(),
                         end_datetime=tt1.isoformat(),
                         username=user,
@@ -268,6 +283,38 @@ def _try_copernicus_layers(
                         skip_existing=False,
                         coordinates_selection_method="nearest",
                     )
+
+                    def _download_at_depth(depth: Optional[float]) -> None:
+                        copernicusmarine.subset(
+                            **subset_args,
+                            minimum_depth=depth,
+                            maximum_depth=depth,
+                        )
+
+                    try:
+                        _download_at_depth(min_depth)
+                    except Exception as first_error:
+                        # Toolbox may reject a nominal depth of 0 even with
+                        # nearest-selection: its shallowest model layer is ~0.494m.
+                        # Use only the bounds returned for THIS dataset.
+                        corrected_depth = (
+                            _surface_depth_from_error(first_error, float(depth_target))
+                            if depth_target is not None else None
+                        )
+                        if (corrected_depth is None or min_depth is None
+                                or math.isclose(corrected_depth, min_depth, abs_tol=1e-9)):
+                            raise
+                        rec["depth_retry"] = {
+                            "initial_depth_m": float(min_depth),
+                            "server_depth_error": str(first_error),
+                            "corrected_depth_m": float(corrected_depth),
+                        }
+                        rec["depth_selected_m"] = float(corrected_depth)
+                        depth_resolver._cache[dsid] = float(corrected_depth)
+                        _download_at_depth(float(corrected_depth))
+
+                    if depth_target is not None:
+                        rec["depth_selected_m"] = float(rec.get("depth_selected_m") or min_depth)
                     status.setdefault("resolved_times", {})[key] = tt0.isoformat()
                     status.setdefault("nc_paths", {})[key] = str(p)
 

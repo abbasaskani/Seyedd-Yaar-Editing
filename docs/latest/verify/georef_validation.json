@@ -1,0 +1,477 @@
+{
+  "ok": true,
+  "run_id": "main",
+  "grid": {
+    "width": 220,
+    "height": 220,
+    "lon_min": 39.935744461132415,
+    "lon_max": 70.67493494829614,
+    "lat_min": -8.278845410204553,
+    "lat_max": 25.73408716925509,
+    "crs": "EPSG:4326",
+    "bounds_convention": "cell_centres",
+    "row_order": "north_to_south"
+  },
+  "grid_convention": "EPSG:4326; centre samples; first row north",
+  "species": [
+    {
+      "variant": "auto",
+      "species": "skipjack",
+      "time_count": 44,
+      "checks": [
+        {
+          "time_id": "20261101_0000Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261101_0600Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261101_1200Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261101_1800Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261102_0000Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261102_0600Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261102_1200Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261102_1800Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261103_0000Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261103_0600Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261103_1200Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261103_1800Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261104_0000Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261104_0600Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261104_1200Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261104_1800Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261105_0000Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261105_0600Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261105_1200Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261105_1800Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261106_0000Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261106_0600Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261106_1200Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261106_1800Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261107_0000Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261107_0600Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261107_1200Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261107_1800Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261108_0000Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261108_0600Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261108_1200Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261108_1800Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261109_0000Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261109_0600Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261109_1200Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261109_1800Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261110_0000Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261110_0600Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261110_1200Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261110_1800Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261111_0000Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261111_0600Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261111_1200Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261111_1800Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        }
+      ],
+      "aoi_valid_cells": 31216
+    },
+    {
+      "variant": "auto",
+      "species": "yellowfin",
+      "time_count": 44,
+      "checks": [
+        {
+          "time_id": "20261101_0000Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261101_0600Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261101_1200Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261101_1800Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261102_0000Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261102_0600Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261102_1200Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261102_1800Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261103_0000Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261103_0600Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261103_1200Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261103_1800Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261104_0000Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261104_0600Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261104_1200Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261104_1800Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261105_0000Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261105_0600Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261105_1200Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261105_1800Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261106_0000Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261106_0600Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261106_1200Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261106_1800Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261107_0000Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261107_0600Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261107_1200Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261107_1800Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261108_0000Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261108_0600Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261108_1200Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261108_1800Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261109_0000Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261109_0600Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261109_1200Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261109_1800Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261110_0000Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261110_0600Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261110_1200Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261110_1800Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261111_0000Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261111_0600Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261111_1200Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261111_1800Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        }
+      ],
+      "aoi_valid_cells": 31216
+    }
+  ],
+  "warnings": [],
+  "errors": [],
+  "limitation": "Spatial agreement with real Socotra coastline requires original, georeferenced NetCDF layers and coastline reference."
+}

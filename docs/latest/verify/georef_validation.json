@@ -20,26 +20,6 @@
       "time_count": 44,
       "checks": [
         {
-          "time_id": "20261111_0000Z",
-          "pcatch_ensemble_valid_cells": 31073,
-          "conf_valid_cells": 31216
-        },
-        {
-          "time_id": "20261111_0600Z",
-          "pcatch_ensemble_valid_cells": 31073,
-          "conf_valid_cells": 31216
-        },
-        {
-          "time_id": "20261111_1200Z",
-          "pcatch_ensemble_valid_cells": 31073,
-          "conf_valid_cells": 31216
-        },
-        {
-          "time_id": "20261111_1800Z",
-          "pcatch_ensemble_valid_cells": 31073,
-          "conf_valid_cells": 31216
-        },
-        {
           "time_id": "20261112_0000Z",
           "pcatch_ensemble_valid_cells": 31073,
           "conf_valid_cells": 31216
@@ -236,6 +216,26 @@
         },
         {
           "time_id": "20261121_1800Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261122_0000Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261122_0600Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261122_1200Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261122_1800Z",
           "pcatch_ensemble_valid_cells": 31073,
           "conf_valid_cells": 31216
         }
@@ -248,26 +248,6 @@
       "time_count": 44,
       "checks": [
         {
-          "time_id": "20261111_0000Z",
-          "pcatch_ensemble_valid_cells": 31073,
-          "conf_valid_cells": 31216
-        },
-        {
-          "time_id": "20261111_0600Z",
-          "pcatch_ensemble_valid_cells": 31073,
-          "conf_valid_cells": 31216
-        },
-        {
-          "time_id": "20261111_1200Z",
-          "pcatch_ensemble_valid_cells": 31073,
-          "conf_valid_cells": 31216
-        },
-        {
-          "time_id": "20261111_1800Z",
-          "pcatch_ensemble_valid_cells": 31073,
-          "conf_valid_cells": 31216
-        },
-        {
           "time_id": "20261112_0000Z",
           "pcatch_ensemble_valid_cells": 31073,
           "conf_valid_cells": 31216
@@ -464,6 +444,26 @@
         },
         {
           "time_id": "20261121_1800Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261122_0000Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261122_0600Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261122_1200Z",
+          "pcatch_ensemble_valid_cells": 31073,
+          "conf_valid_cells": 31216
+        },
+        {
+          "time_id": "20261122_1800Z",
           "pcatch_ensemble_valid_cells": 31073,
           "conf_valid_cells": 31216
         }
